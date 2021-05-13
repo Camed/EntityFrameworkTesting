@@ -1,0 +1,28 @@
+﻿@page
+@model FizzBuzzEntity.Pages.HistoryModel
+@{
+    ViewData["Title"] = "History";
+}
+
+<h1>History</h1>
+
+<table>
+    <tr>
+        <th>Number</th>
+        <th>Value</th>
+        <th>Last Modify Date</th>
+        <th>Links</th>
+    </tr>
+    @foreach (var x in Model.FizzBuzzList)
+    {
+        <tr>
+            <th>@x.fbNumber</th>
+            <th>@x.fbValue</th>
+            <th>@x.dateTime</th>
+            <th>
+                <a href="/ModifyEntry?id=@x.Id">Modify</a>
+                <a href="/DeleteEntry?id=@x.Id">Delete</a>
+            </th>
+        </tr>
+    }
+</table>
